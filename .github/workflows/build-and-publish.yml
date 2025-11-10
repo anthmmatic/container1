@@ -18,6 +18,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - run: chmod +x copydata.sh
+
       - name: Log in to the Container registry
         uses: docker/login-action@v3
         with:
