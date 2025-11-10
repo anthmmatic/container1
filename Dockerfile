@@ -1,5 +1,5 @@
 FROM alpine:latest
 
-RUN mkdir -p /opt/upstream
+RUN mkdir -p gh-upstream
 
 CMD ["/bin/sh"]
