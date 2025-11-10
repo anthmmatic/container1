@@ -15,5 +15,4 @@ jobs:
             - gh-upstream:/data/upstream
       steps:
         - run: |
-            pwd
-            ls -al .
+            docker volumes
