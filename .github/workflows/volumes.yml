@@ -14,6 +14,9 @@ jobs:
           volumes:
             - gh-upstream:/opt/upstream:rw
       steps:
+        - run: |
+            pwd
+            ls -al .
         - name: Wait for data to appear
           run: |
             for i in $(seq 1 60); do
