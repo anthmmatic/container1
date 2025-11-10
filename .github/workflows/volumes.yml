@@ -14,11 +14,6 @@ jobs:
           image: ghcr.io/anthmmatic/container1:service
           volumes:
             - gh-upstream:/opt/upstream:rw
-          options: >
-            --health-cmd "test -f /opt/upstream/.ready || [ -n \"$(ls -A /opt/upstream 2>/dev/null)\" ]"
-            --health-interval 5s
-            --health-timeout 3s
-            --health-retries 20
       steps:
         - name: Wait for data to appear
           run: |
