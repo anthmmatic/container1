@@ -17,16 +17,3 @@ jobs:
         - run: |
             pwd
             ls -al .
-        - name: Wait for data to appear
-          run: |
-            for i in $(seq 1 60); do
-              if [ -n "$(ls -A /opt/upstream 2>/dev/null)" ]; then
-                echo "Data present in /opt/upstream"
-                break
-              fi
-              echo "Waiting for upstream data..."
-              sleep 2
-            done
-            ls -al /opt/upstream
-        - name: Use the shared data
-          run: ls -a /opt/upstream
