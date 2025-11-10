@@ -4,10 +4,6 @@ on:
 jobs:
     test:
       runs-on: ubuntu-latest
-      container:
-        image: ghcr.io/anthmmatic/container1:main
-        volumes:
-          - gh-upstream:/data/main
       services:
         upstream:
           image: ghcr.io/anthmmatic/container1:service
