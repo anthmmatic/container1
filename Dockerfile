@@ -7,4 +7,4 @@ COPY upstream/text.txt /data/text.txt
 RUN mkdir /ops/upstream
 
 # Set a default command
-CMD ["/bin/sh"]
+ENTRYPOINT ["/copydata.sh"]
