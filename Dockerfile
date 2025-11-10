@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN mkdir -p /ops/upstream
+RUN mkdir -p /opt/upstream
 
 COPY ./text.txt /data/upstream
 
