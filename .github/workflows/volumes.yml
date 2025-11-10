@@ -7,12 +7,12 @@ jobs:
       container:
         image: ghcr.io/anthmmatic/container1:main
         volumes:
-          - gh-upstream:/opt/upstream:ro
+          - gh-upstream:/data/upstream
       services:
         upstream:
           image: ghcr.io/anthmmatic/container1:service
           volumes:
-            - gh-upstream:/opt/upstream:rw
+            - gh-upstream:/data/upstream
       steps:
         - run: |
             pwd
