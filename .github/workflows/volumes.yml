@@ -13,6 +13,8 @@ jobs:
   test:
     needs: set
     runs-on: ubuntu-latest
-    container: ${{ fromJSON(needs.set.outputs.container) }}
+    container:
+      image: ghcr.io/anthmmatic/container1:service
+      volumes: []
     steps:
       - run: echo 'done'
