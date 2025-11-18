@@ -2,13 +2,17 @@ on:
   push:
 
 jobs:
-    test:
-      runs-on: ubuntu-latest
-      services:
-        upstream:
-          image: ghcr.io/anthmmatic/container1:service
-          volumes:
-            - gh-upstream:/data/upstream
-      steps:
-        - run: |
-            docker volume ls
+  set:
+    runs-on: ubuntu-latest
+    outputs:
+      container: ${{ steps.set-container.outputs.container }}
+    steps:
+    - id: set-container
+      run: echo "container={\"image\":\"ghcr.io/anthmmatic/container1:service\",\"volumes\":\"gh-upstream:/data/upstream\"}" >> $GITHUB_OUTPUT
+      
+  test:
+    needs: set
+    runs-on: ubuntu-latest
+    container: ${{ fromJSON(needs.set.outputs.container) }}
+    steps:
+      - run: echo 'done'
