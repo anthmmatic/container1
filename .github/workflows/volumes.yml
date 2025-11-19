@@ -17,5 +17,6 @@ jobs:
       image: ghcr.io/anthmmatic/container1:service
       volumes:
         - ${{ false && format('/opt/upstream:/opt/upstream{0}:ro', contains(inputs.container-image-version, 'v1.0') && '-v1.0' || '') || fromJSON('[]') }}
+        - ${{ true && '/opt/runner_set_buildcache:/opt/runner_set_buildcache:rw' || fromJSON('[]') }}
     steps:
       - run: echo 'done'
