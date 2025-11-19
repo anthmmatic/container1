@@ -15,6 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/anthmmatic/container1:service
-      volumes: ${{ true && [format('/opt/upstream:/opt/upstream{0}:ro', contains(inputs.container-image-version, 'v1.0') && '-v1.0' || ''),'/opt/runner_set_buildcache:/opt/runner_set_buildcache:rw'] || [] }}
+      volumes: ${{ true && format('/opt/upstream:/opt/upstream{0}:ro', contains(inputs.container-image-version, 'v1.0') && '-v1.0' || ''),'/opt/runner_set_buildcache:/opt/runner_set_buildcache:rw' || [] }}
     steps:
       - run: echo 'done'
